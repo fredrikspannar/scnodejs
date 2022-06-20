@@ -11,9 +11,10 @@ dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
 // routes
-app.get('/api/users', (req, res) => {
-    res.send('Express + TypeScript Server');
-});
+const userRouter = require('./routes/users');
+userRouter(app);
+const linksRouter = require('./routes/links');
+linksRouter(app);
 // return status 404 for routes which does not exist
 app.get('*', (req, res) => {
     const error = { "error": "404 Not Found" };
