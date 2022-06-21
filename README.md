@@ -58,11 +58,11 @@ npm run migrate refresh
 
 ```
 POST /api/users
-```
 
 Required Fields:
     email : string ( no longer than 255 chars )
     password : string ( no longer than 255 chars, between 8 to 15 characters )
+```
 
 ## Suggestions for improvements
 
