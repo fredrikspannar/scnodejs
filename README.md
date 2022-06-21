@@ -2,6 +2,8 @@
 
 A Typescript/Node.JS backend-project with persistant storage in MySQL
 
+Tests are run/created with jest
+
 ## Installation
 
 To install dependencies, run:
@@ -163,8 +165,11 @@ Body: {
 
 ## Suggestions for improvements
 
-* Validate email as an actual email
+* Validate email as an actual valid email
 * Stronger password requirements
 * Better API Documentation with examples
 * More coverage with tests
 * A test-enviroment with a test-database
+* Validate a link as an actual valid link
+* Check if a slug/name is unique and not taken in the database
+* Slug/name for a link should use a more readable string instead of a 8-char hex-string

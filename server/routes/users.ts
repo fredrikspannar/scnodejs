@@ -30,7 +30,7 @@ const userRouter = (app, dbConnect) => {
                 const exists = await db.query("SELECT * FROM users WHERE email = ?",[email]);
 
                 if ( exists.length > 0 ) {
-                    // fail, user exists - return 409 conflick with a message
+                    // fail, user exists - return 409 conflict with a message
                     res.status(409).send( <errorMessage>{ error: "User already exists" } );
 
                 } else {
@@ -47,7 +47,7 @@ const userRouter = (app, dbConnect) => {
             } else {
                 // validation failed
 
-                if (!email || !password) res.status(403).send( <errorMessage>{ error: "Check required fields" } )
+                res.status(403).send( <errorMessage>{ error: "Check required fields" } )
             }
 
         } catch(error) {
@@ -101,7 +101,7 @@ const userRouter = (app, dbConnect) => {
             } else {
                 // validation failed
 
-                if (!email || !password) res.status(403).send( <errorMessage>{ error: "Check required fields" } )
+                res.status(403).send( <errorMessage>{ error: "Check required fields" } )
             }
 
         } catch(error) {
