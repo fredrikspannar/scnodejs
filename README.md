@@ -130,7 +130,7 @@ Required Fields:
     password : string ( no longer than 255 chars, between 8 to 15 characters )
 ```
 
-Successfull login:
+Successful login:
 
 ```
 Statuscode: 200
@@ -161,6 +161,46 @@ Statuscode: 403
 Body: { 
         error: "Email and/or password is incorrect"
       }
+```
+
+### Create link
+
+```
+POST /api/links/create
+
+Required Fields:
+    userId : number
+    link : string ( no longer than 255 chars)
+
+Required headers:
+    Authorization : string ( with a valid token from login or create user )
+```
+
+Failed due to validation errors:
+
+```
+Statuscode: 403
+
+Body: { 
+        error: "Check required fields"
+      }
+```
+
+Successful creation of link:
+
+```
+Statuscode: 201
+```
+
+### Public link
+
+```
+GET /link/[ID]
+
+    Where [ID] is a 8-char string with the shortened link from creation of a link
+    
+    Returns statuscode 302 with the full URL
+
 ```
 
 ## Suggestions for improvements

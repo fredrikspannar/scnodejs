@@ -19,7 +19,7 @@ const linksRouter = (app, dbConnect) => {
             if ( slug ) {
                 // valiation ok
 
-                // get url to redirect to
+                // query database for link
                 const result = await db.query("SELECT * FROM links WHERE slug = ?",[slug]);
             
                 if ( result.length === 0 ) {
@@ -28,6 +28,7 @@ const linksRouter = (app, dbConnect) => {
 
                 } else {
 
+                    // get url to redirect to
                     const url = result[0].link;
 
                     // return redirect
