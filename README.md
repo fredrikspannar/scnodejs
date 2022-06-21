@@ -64,6 +64,40 @@ Required Fields:
     password : string ( no longer than 255 chars, between 8 to 15 characters )
 ```
 
+Successfully created:
+
+```
+Statuscode: 201
+
+Body: { 
+        token: XXXXXXXXXXXX,
+        user_id: YY
+    }
+
+Where XXXXXXXXXXXX is the Authentication token and YY is the user id
+```
+
+Failed due to validation errors:
+
+```
+Statuscode: 403
+
+Body: { 
+        error: "Check required fields"
+      }
+```
+
+Failed due to user already exist:
+
+```
+Statuscode: 409
+
+Body: { 
+        error: "Check required fields"
+      }
+```
+
+
 ## Suggestions for improvements
 
 * Validate email as an actual email
