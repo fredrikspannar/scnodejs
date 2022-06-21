@@ -1,10 +1,19 @@
 import { Express, Request, Response } from 'express';
 import { verifyToken } from "./../includes/verifyToken";
 
-const linksRouter = (app) => {
+const linksRouter = (app, dbConnect) => {
 
-    app.get('/api/links', (req: Request, res: Response) => {
-        res.send('Express + TypeScript Server @ GET /api/links');
+    app.get('/link', (req: Request, res: Response) => {
+        res.send('Express + TypeScript Server @ GET /link');
+
+
+/*
+Return redirect:
+
+   res.writeHead(301, { "Location": "/path/within/site" });
+  return res.end();
+*/
+
     });
 
     // create new link ( authorization required with token in header )

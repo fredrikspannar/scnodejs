@@ -10,3 +10,8 @@ export type userCreatedResponse = {
     token: string,
     user_id: number
 }
+
+export type userLoginResponse = {
+    token: string,
+    user_id: number
+}

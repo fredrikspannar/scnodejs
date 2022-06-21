@@ -78,7 +78,7 @@ npm test
 ### Create user
 
 ```
-POST /api/users
+POST /api/users/create
 
 Required Fields:
     email : string ( no longer than 255 chars )
@@ -118,6 +118,48 @@ Body: {
       }
 ```
 
+### Login user
+
+```
+POST /api/users/login
+
+Required Fields:
+    email : string ( no longer than 255 chars )
+    password : string ( no longer than 255 chars, between 8 to 15 characters )
+```
+
+Successfull login:
+
+```
+Statuscode: 200
+
+Body: { 
+        token: XXXXXXXXXXXX,
+        user_id: YY
+    }
+
+Where XXXXXXXXXXXX is the Authentication token and YY is the user id
+```
+
+Failed due to validation errors:
+
+```
+Statuscode: 403
+
+Body: { 
+        error: "Check required fields"
+      }
+```
+
+Failed due to login does not exit or error in email and/or password:
+
+```
+Statuscode: 403
+
+Body: { 
+        error: "Email and/or password is incorrect"
+      }
+```
 
 ## Suggestions for improvements
 
