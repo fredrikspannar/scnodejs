@@ -67,4 +67,38 @@ describe("API", () => {
         expect(response.statusCode).toBe(409);
     }); 
 
+
+    it("Login user", async () => {
+        const response = await request(app).post("/api/users/login")
+            .send({
+                email: email,
+                password: password
+            });
+
+            /*
+                Response body should have "token" and "user_id"
+                Statuscode should be 200
+            */
+
+            expect(response.body).toHaveProperty("token");
+            expect(response.body).toHaveProperty("user_id");
+            expect(response.statusCode).toBe(200);
+    }); 
+
+    it("Login user with incorrect password", async () => {
+        const response = await request(app).post("/api/users/login")
+            .send({
+                email: email,
+                password: "asdfghjk"
+            });
+
+            /*
+                Response body should have an error message
+                Statuscode should be 403
+            */
+
+            expect(response.body).toEqual({error:"Email and/or password is incorrect"});
+            expect(response.statusCode).toBe(403);
+    }); 
+
   });
