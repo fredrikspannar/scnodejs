@@ -1,5 +1,7 @@
 # scnodejs
 
+A Typescript/Node.JS backend-project with persistant storage in MySQL
+
 ## Installation
 
 To install dependencies, run:
@@ -21,17 +23,9 @@ DB_PORT=3306
 SECRET_TOKEN_KEY="your-secret-here"
 ```
 
-## Tests
-
-Before tests are run the database is refreshed ( all tables dropped and then created )
-
-Run tests with
-
-```
-npm test
-```
-
 ## Migrations
+Before running any migration-command you need to create an enviroment configuration
+
 [Documentation for package "mysql-migrations"](https://github.com/kawadhiya21/mysql-migrations#readme)
 
 Add a new migration called "create_table_users":
@@ -50,6 +44,33 @@ Run migrations refresh:
 
 ```
 npm run migrate refresh
+```
+
+## Running
+
+Before running any scenario you need to create an enviroment configuration and also run migrations (up) to create the database tables
+
+### Development
+
+```
+npm run dev
+```
+
+### Production
+
+```
+npm run build
+npm start
+```
+
+## Tests
+
+Before tests are run the database is refreshed ( all tables dropped and then re-created )
+
+Run tests with
+
+```
+npm test
 ```
 
 ## API Documentation
