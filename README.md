@@ -25,6 +25,12 @@ SECRET_TOKEN_KEY="your-secret-here"
 
 Before tests are run the database is refreshed ( all tables dropped and then created )
 
+Run tests with
+
+```
+npm test
+```
+
 ## Migrations
 [Documentation for package "mysql-migrations"](https://github.com/kawadhiya21/mysql-migrations#readme)
 
@@ -45,3 +51,23 @@ Run migrations refresh:
 ```
 npm run migrate refresh
 ```
+
+## API Documentation
+
+### Create user
+
+```
+POST /api/users
+```
+
+Required Fields:
+    email : string ( no longer than 255 chars )
+    password : string ( no longer than 255 chars, between 8 to 15 characters )
+
+## Suggestions for improvements
+
+* Validate email as an actual email
+* Stronger password requirements
+* Better API Documentation with examples
+* More coverage with tests
+* A test-enviroment with a test-database
