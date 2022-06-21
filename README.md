@@ -1,8 +1,12 @@
-# scnodejs
+# Node.JS URL shortener
 
 A Typescript/Node.JS backend-project with persistant storage in MySQL
 
 Tests are run/created with jest
+
+The packages selected were the ones that made the best sense and the architecture/structure was based to create some seperation
+so that all logic wouldn't be in one long, long file. Probably could use more structure and seperation depending on the size of
+the whole project.
 
 ## Installation
 
@@ -197,7 +201,8 @@ Statuscode: 201
 ```
 GET /link/[ID]
 
-    Where [ID] is a 8-char string with the shortened link from creation of a link
+    Where [ID] is a 8-char string with the shortened link from creation of a link.
+    Example: /link/5b568a58
     
     Returns statuscode 302 with the full URL
 
@@ -208,8 +213,9 @@ GET /link/[ID]
 * Validate email as an actual valid email
 * Stronger password requirements
 * Better API Documentation with examples
-* More coverage with tests
+* More cases and coverage for tests
 * A test-enviroment with a test-database
 * Validate a link as an actual valid link
 * Check if a slug/name is unique and not taken in the database
 * Slug/name for a link should use a more readable string instead of a 8-char hex-string
+* A global jest before-all for tests which require a user instead of creating a new user for multiple tests

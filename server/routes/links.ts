@@ -20,7 +20,7 @@ const linksRouter = (app, dbConnect) => {
                 // valiation ok
 
                 // query database for link
-                const result = await db.query("SELECT * FROM links WHERE slug = ?",[slug]);
+                const result = await db.query("SELECT * FROM links WHERE slug = ? LIMIT 1",[slug]);
             
                 if ( result.length === 0 ) {
                     // fail, link does not exist
@@ -94,7 +94,7 @@ const linksRouter = (app, dbConnect) => {
                     const result = await db.query("INSERT INTO links(`link`,`user_id`, `slug`) VALUES(?,?,?)", [link, userId, slug]);
 
                     // all done, return 201 created
-                    res.status(201).send();
+                    res.status(201).send({});
                 }
 
             } else {
